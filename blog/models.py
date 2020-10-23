@@ -73,7 +73,7 @@ class Article(models.Model):
     author = models.CharField(max_length=50, verbose_name='作者')
     summary = models.TextField(max_length=230, verbose_name='文章摘要')
     body = models.TextField(verbose_name='文章内容')
-    img_link = models.CharField(max_length=200, default='https://tendcode.com/cdn/blog/20200723/pypi.png')
+    image = models.ImageField(upload_to='image', default='https://tendcode.com/cdn/blog/20200723/pypi.png')
     create_date = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
     update_date = models.DateTimeField(verbose_name='更新时间', auto_now=True)
     views = models.IntegerField(default=0)

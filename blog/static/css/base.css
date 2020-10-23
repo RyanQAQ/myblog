@@ -1,0 +1,14 @@
+
+/* ----navbar---------- */
+.blog-navbar {
+    box-shadow: 0 0 4px 0 rgba(0,0,0,0.1);
+}
+#site-logo {
+    margin-left: 120px;
+}
+.form-control:focus {
+    box-shadow: none;
+}
+.btn:focus {
+    box-shadow: none;
+}
