@@ -1,14 +1,113 @@
+/* --------------------全局------------------ */
+.btn {
+    border: none;
+}
 
-/* ----navbar---------- */
+/* --------------------导航------------------ */
+.navbar {
+    padding: 0.5rem 2rem;
+}
+
+.navbar-nav .nav-item a {
+    color: black !important;
+}
+
+.navbar-nav .nav-item a:hover {
+    text-decoration: none;
+    color: #60ACFF !important;
+}
+
 .blog-navbar {
-    box-shadow: 0 0 4px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.1);
 }
-#site-logo {
-    margin-left: 120px;
+
+.re-control {
+    font-size: 0.9rem;
 }
+
+.re-btn-outline-success {
+    padding: 0.375rem 0.375rem;
+}
+
+.re-btn-outline-success:hover {
+    color: #60ACFF;
+    border: none;
+}
+
+@media (min-width: 1200px) {
+    .navbar-brand {
+        margin-left: 12%;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar-brand {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .form-inline .form-control {
+        width: 12rem;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    .nav-item {
+        margin-right: 1.5rem !important;
+    }
+
+    .navbar-nav {
+        margin-right: 2rem !important;
+    }
+}
+
+.blog-navbar .navbar-brand {
+    font-size: 1.6em;
+    font-weight: 700;
+    /*margin-left: 14%;*/
+}
+
 .form-control:focus {
     box-shadow: none;
 }
+
 .btn:focus {
     box-shadow: none;
+}
+
+
+/* --------------------主体--------------------*/
+.main-content {
+    margin-top: 5rem;
+}
+
+.row {
+    height: 100rem;
+}
+
+.col-lg-8 {
+    background-color: lightcyan;
+}
+
+.col-lg-4 {
+    background-color: lightgrey;
+}
+
+/* ----------------左边部分--------------*/
+.summary-block {
+    background-color: lavender;
+}
+
+.title {
+
+}
+
+.main-content a {
+    color: black;
+}
+
+.main-content a:hover {
+    text-decoration: none;
+    color: #60ACFF;
 }

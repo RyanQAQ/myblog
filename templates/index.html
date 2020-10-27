@@ -1,1 +1,15 @@
 {% extends "base.html" %}
+
+
+{% block base_content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                {% include 'tags/articles.html' %}
+            </div>
+            <div class="col-lg-4">
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
