@@ -82,6 +82,15 @@
     margin-top: 5rem;
 }
 
+.main-content a {
+    color: black;
+}
+
+.main-content a:hover {
+    text-decoration: none;
+    color: #60ACFF;
+}
+
 .row {
     height: 100rem;
 }
@@ -90,24 +99,89 @@
     background-color: lightcyan;
 }
 
-.col-lg-4 {
-    background-color: lightgrey;
-}
+/*.col-lg-4 {*/
+/*    background-color: lightgrey;*/
+/*}*/
 
 /* ----------------左边部分--------------*/
 .summary-block {
-    background-color: lavender;
+    background-color: white;
 }
 
-.title {
-
+.summary-block:hover {
+    box-shadow: 1px 2px 3px 2px rgba(0, 0, 0, 0.1);
 }
 
-.main-content a {
-    color: black;
+.summary-img img {
+    width: 12rem;
+    height: 8rem;
 }
 
-.main-content a:hover {
-    text-decoration: none;
-    color: #60ACFF;
+@media (max-width: 768px) {
+    .summary-img img {
+        width: 8rem;
+        height: 6rem;
+    }
+}
+
+.w-60 {
+    width: 60%;
+    vertical-align:middle
+}
+
+.fs-15 {
+    font-size: 15px;
+}
+
+.summary-footer, .summary-footer a, .pub-date {
+    color: dimgray;
+}
+
+/* ----------------右边部分--------------*/
+.card1, .card2 {
+    box-shadow: 0 0 1em 0 rgba(0,0,0,0.1);
+}
+
+.card1 .row .col img {
+    width: 60px;
+    height: 60px;
+}
+
+.card1 .card-body {
+    height: 180px !important;
+}
+
+.card1 .row {
+    height: 60px !important;
+}
+
+.card1 .col {
+    height: 60px !important;
+}
+
+.card1 .card-footer {
+    border-top: 1px solid rgba(20,20,20,0.1);
+    height: 68px !important;
+}
+
+.card1 .row .col p {
+    margin-bottom: 1px !important;
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    .card1 .card-body p {
+        font-size: 14px;
+    }
+}
+
+.card2 {
+    background-color: lightskyblue;
+}
+
+.article-number {
+    width: 25px;
+    height: 25px;
+    float: right;
+    border-radius: 25px;
+    background-color: lightskyblue;
 }

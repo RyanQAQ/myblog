@@ -1,18 +1,25 @@
 <div class="summary-list">
-    <section class="summary-block mb-1 mb-sm-2 p-1 p-lg-3">
-        <h5 class="title"><a href="#">文章标题</a></h5>
-        <span class="pub-date">10月28日</span>
-        <div class="summary-img align-self-center mr-2 mr-lg-3 w-25 modal-open">
+    <section class="summary-block mb-2 mb-sm-2 p-1 p-lg-3">
+        <h5 class="title d-inline-block pl-2"><a href="#">文章标题</a></h5>
+        <span class="pub-date float-right mr-3 fs-15">
+            <i class="fa fa-calendar mr-1" aria-hidden="true"></i>10月28日
+        </span>
+        <div class="summary-img align-self-center modal-open fs-15 mt-3">
             <a href="#">
-                <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603799841556&di=404a5de20b8ddf7fb6a4c35217032e5a&imgtype=0&src=http%3A%2F%2Fwww.microsource.tech%2Fuploads%2F20200320%2F2c29c0096141b66b9eb02cee25539ffd.jpg" width="100" height="100" alt="">
+                <img src="{% static 'img/default.jpg' %}" alt="">
             </a>
-            <span>文章摘要：的数据分配阀文档搜房覅hi激动而哦哦佛发发哦我就佛我佛叫我陪我推荐可否我莫的味道</span>
+            <span class="summary-text d-inline-block w-60 ml-3">文章摘要：的数据分配阀文档搜房覅hi激动而哦哦佛发发哦我就佛我佛叫我陪我推荐可否我莫的味道</span>
         </div>
-
-
-        <div class="summary-footer">
-
+        <div class="summary-footer fs-15 mt-3">
+            <a href="#" title="查看该分类下更多文章">
+                <i class="fa fa-tags ml-2 mr-1" aria-hidden="true"></i>django开发
+            </a>
+            <a href="#" class="float-right mr-3" title="查看文章评论">
+                <i class="fa fa-comments mr-1" aria-hidden="true"></i>5
+            </a>
+            <span class="float-right mr-4">
+                <i class="fa fa-eye mr-1" aria-hidden="true"></i>250
+            </span>
         </div>
-
     </section>
 </div>
