@@ -64,8 +64,7 @@
 
 .blog-navbar .navbar-brand {
     font-size: 1.6em;
-    font-weight: 700;
-    /*margin-left: 14%;*/
+    font-weight: 800;
 }
 
 .form-control:focus {
@@ -75,7 +74,6 @@
 .btn:focus {
     box-shadow: none;
 }
-
 
 /* --------------------主体--------------------*/
 .main-content {
@@ -91,25 +89,13 @@
     color: #60ACFF;
 }
 
-.row {
-    height: 100rem;
-}
-
-.col-lg-8 {
-    background-color: lightcyan;
-}
-
-/*.col-lg-4 {*/
-/*    background-color: lightgrey;*/
-/*}*/
-
 /* ----------------左边部分--------------*/
 .summary-block {
-    background-color: white;
+    box-shadow: 1px 2px 3px 2px rgba(0, 0, 0, 0.05);
 }
 
 .summary-block:hover {
-    box-shadow: 1px 2px 3px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 3px 5px 3px rgba(0, 0, 0, 0.2);
 }
 
 .summary-img img {
@@ -124,8 +110,15 @@
     }
 }
 
+@media (min-width: 992px) and (max-width: 1200px) {
+    .summary-img img {
+        width: 10rem;
+        height: 7.5rem;
+    }
+}
+
 .w-60 {
-    width: 60%;
+    width: 62%;
     vertical-align:middle
 }
 
@@ -138,7 +131,7 @@
 }
 
 /* ----------------右边部分--------------*/
-.card1, .card2 {
+.card1, .card2, .card3, .card4 {
     box-shadow: 0 0 1em 0 rgba(0,0,0,0.1);
 }
 
@@ -174,14 +167,18 @@
     }
 }
 
-.card2 {
-    background-color: lightskyblue;
-}
-
 .article-number {
     width: 25px;
     height: 25px;
     float: right;
     border-radius: 25px;
     background-color: lightskyblue;
+}
+
+.card-header {
+    font-weight: bold;
+}
+
+.footer-font p{
+    color: ghostwhite   ;
 }

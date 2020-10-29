@@ -125,7 +125,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = False
+USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -137,3 +137,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # 媒体文件收集
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# 分页参数设置
+BASE_PAGINATE_BY = 3
+BASE_PAGINATE_ORPHANS = 4

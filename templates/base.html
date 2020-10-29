@@ -15,7 +15,7 @@
     <link href="{% static 'css/base.css' %}" rel="stylesheet">
 </head>
 
-<body>
+<body class="bg-light">
     <!-- 导航栏 -->
     <header class="shadow">
     {% include 'tags/navbar.html' %}
@@ -25,9 +25,11 @@
         {% block base_content %}{% endblock %}
     </main>
     <!--尾部-->
-    <footer>
-
+    <footer class="container-fluid mt-3 bg-dark">
+        <div class="card-body text-center footer-font fs-15">
+            <p class="mb-1">Copyright © 2020 Ryancode Powered by Django.</p>
+            <p class="mb-1">沪ICP备xxxxxxxxxx号-x | 站长统计 | 网站已续航 xxx 天</p>
+        </div>
     </footer>
-
 </body>
 </html>

@@ -6,7 +6,7 @@ import markdown
 
 class Keyword(models.Model):
     """关键词模型"""
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=20, default='')
 
     class Meta:
         db_table = 'keyword'
@@ -20,9 +20,8 @@ class Keyword(models.Model):
 
 class Tag(models.Model):
     """标签模型"""
-    name = models.CharField(max_length=20)
-    slug = models.SlugField(unique=True)
-    description = models.TextField(max_length=240, help_text='用来作为SEO的description')
+    name = models.CharField(max_length=20, default='')
+    # slug = models.SlugField(unique=True)
 
     class Meta:
         db_table = 'tag'
@@ -45,9 +44,8 @@ class Tag(models.Model):
 
 class Category(models.Model):
     """文章分类模型"""
-    name = models.CharField(max_length=20)
-    slug = models.SlugField(unique=True)
-    description = models.TextField(max_length=240, help_text='用来作为SEO的description')
+    name = models.CharField(max_length=20, default='')
+    # slug = models.SlugField(unique=True, default=' ')
 
     class Meta:
         db_table = 'category'
@@ -69,11 +67,11 @@ class Category(models.Model):
 
 class Article(models.Model):
     """文章模型"""
-    title = models.CharField(max_length=150, verbose_name='文章标题')
-    author = models.CharField(max_length=50, verbose_name='作者')
-    summary = models.TextField(max_length=230, verbose_name='文章摘要')
+    title = models.CharField(max_length=18, verbose_name='文章标题')
+    author = models.CharField(max_length=12, verbose_name='作者', default='Ryan')
+    summary = models.TextField(max_length=120, verbose_name='文章摘要')
     body = models.TextField(verbose_name='文章内容')
-    image = models.ImageField(upload_to='image', default='https://tendcode.com/cdn/blog/20200723/pypi.png')
+    image = models.ImageField(upload_to='image', default='img/default.jpg')
     create_date = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
     update_date = models.DateTimeField(verbose_name='更新时间', auto_now=True)
     views = models.IntegerField(default=0)
@@ -81,6 +79,7 @@ class Article(models.Model):
 
     category = models.ForeignKey(Category, on_delete=models.PROTECT, verbose_name='文章分类')
     tags = models.ManyToManyField(Tag, verbose_name='标签')
+
     keywords = models.ManyToManyField(Keyword, verbose_name='文章关键词',
                                       help_text='文章关键词，用来作为SEO中的keywords，一般3-4个足够')
 

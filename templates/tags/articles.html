@@ -1,25 +1,27 @@
 <div class="summary-list">
-    <section class="summary-block mb-2 mb-sm-2 p-1 p-lg-3">
-        <h5 class="title d-inline-block pl-2"><a href="#">文章标题</a></h5>
+    {% for article in articles %}
+    <section class="summary-block mb-2 mb-sm-2 p-1 p-lg-3 bg-white">
+        <h5 class="title d-inline-block pl-2"><a href="#">{{ article.title }}</a></h5>
         <span class="pub-date float-right mr-3 fs-15">
-            <i class="fa fa-calendar mr-1" aria-hidden="true"></i>10月28日
+            <i class="fa fa-calendar mr-1" aria-hidden="true"></i>{{ article.create_date }}
         </span>
         <div class="summary-img align-self-center modal-open fs-15 mt-3">
             <a href="#">
-                <img src="{% static 'img/default.jpg' %}" alt="">
+                <img src="{{ article.image }}" alt="">
             </a>
-            <span class="summary-text d-inline-block w-60 ml-3">文章摘要：的数据分配阀文档搜房覅hi激动而哦哦佛发发哦我就佛我佛叫我陪我推荐可否我莫的味道</span>
+            <span class="summary-text d-inline-block w-60 ml-3">{{ article.summary }}</span>
         </div>
         <div class="summary-footer fs-15 mt-3">
             <a href="#" title="查看该分类下更多文章">
-                <i class="fa fa-tags ml-2 mr-1" aria-hidden="true"></i>django开发
+                <i class="fa fa-book ml-2 mr-1" aria-hidden="true"></i>{{ article.category }}
             </a>
             <a href="#" class="float-right mr-3" title="查看文章评论">
                 <i class="fa fa-comments mr-1" aria-hidden="true"></i>5
             </a>
             <span class="float-right mr-4">
-                <i class="fa fa-eye mr-1" aria-hidden="true"></i>250
+                <i class="fa fa-eye mr-1" aria-hidden="true"></i>{{ article.views }}
             </span>
         </div>
     </section>
+    {% endfor %}
 </div>
