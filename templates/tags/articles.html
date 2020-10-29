@@ -1,7 +1,7 @@
 <div class="summary-list">
     {% for article in articles %}
     <section class="summary-block mb-2 mb-sm-2 p-1 p-lg-3 bg-white">
-        <h5 class="title d-inline-block pl-2"><a href="#">{{ article.title }}</a></h5>
+        <h5 class="title d-inline-block pl-2"><a class="text-info" href="#">{{ article.title }}</a></h5>
         <span class="pub-date float-right mr-3 fs-15">
             <i class="fa fa-calendar mr-1" aria-hidden="true"></i>{{ article.create_date }}
         </span>
@@ -25,3 +25,5 @@
     </section>
     {% endfor %}
 </div>
+
+{% include 'tags/pagecut.html' %}

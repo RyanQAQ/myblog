@@ -126,8 +126,22 @@
     font-size: 15px;
 }
 
+.summary-block .title a {
+    font-weight: 600;
+}
+
+.summary-block .title a:hover {
+    color: lightcoral !important;
+}
+
 .summary-footer, .summary-footer a, .pub-date {
     color: dimgray;
+}
+
+/* --------------分页--------------*/
+.page-cut-btn {
+    border: none;
+    box-shadow: none;
 }
 
 /* ----------------右边部分--------------*/
@@ -182,3 +196,4 @@
 .footer-font p{
     color: ghostwhite   ;
 }
+
