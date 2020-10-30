@@ -92,10 +92,12 @@
 /* ----------------左边部分--------------*/
 .summary-block {
     box-shadow: 1px 2px 3px 2px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1rem !important;
 }
 
 .summary-block:hover {
     box-shadow: 2px 3px 5px 3px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
 }
 
 .summary-img img {
@@ -107,6 +109,15 @@
     .summary-img img {
         width: 8rem;
         height: 6rem;
+    }
+    .summary-list .summary-block .title a{
+        font-size: 16px;
+    }
+    .summary-list .summary-block .pub-date {
+        font-size: 8px;
+    }
+    .summary-list .summary-block .summary-text {
+        font-size: 14px;
     }
 }
 
@@ -139,9 +150,14 @@
 }
 
 /* --------------分页--------------*/
-.page-cut-btn {
+.page-cut-btn, .page-cut-btn:focus {
     border: none;
     box-shadow: none;
+    outline: none;
+}
+
+.page-cut-btn:disabled:hover {
+    background: none!important;
 }
 
 /* ----------------右边部分--------------*/

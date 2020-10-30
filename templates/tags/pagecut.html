@@ -1,5 +1,23 @@
 <div class="text-center page-cut my-2 mt-sm-1 fs-15">
-    <button class="text-info page-cut-btn bg-light" {% if not page_obj.has_previous %}disabled{% endif %}>上一页</button>
-    &nbsp;&nbsp;第&nbsp;1&nbsp;页&nbsp;/&nbsp;共&nbsp;5&nbsp;页&nbsp;&nbsp;
-    <button class="text-info page-cut-btn bg-light" {% if not page_obj.has_previous %}disabled{% endif %}>下一页</button>
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}" class="text-info page-cut-btn bg-light" >上一页</a>
+    {% endif %}
+    &nbsp;&nbsp;第&nbsp;{{ page_obj.number }}&nbsp;页&nbsp;/&nbsp;共&nbsp;{{ paginator.num_pages }}&nbsp;页&nbsp;&nbsp;
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="text-info page-cut-btn bg-light" >下一页</a>
+    {% endif %}
 </div>
+
+{#<div class="text-center page-cut my-2 mt-sm-1 fs-15">#}
+{#    {% if page_obj.has_previous %}#}
+{#    <a class="text-success" href="?page={{ page_obj.previous_page_number }}">上一页</a>#}
+{#    {% else %}#}
+{#    <span class="text-secondary" title="当前页已经是首页">上一页</span>#}
+{#    {% endif %}#}
+{#    <span class="mx-2">第&nbsp;{{ page_obj.number }}&nbsp;/&nbsp;{{ paginator.num_pages }}&nbsp;页</span>#}
+{#    {% if page_obj.has_next %}#}
+{#    <a class="text-success" href="?page={{ page_obj.next_page_number }}">下一页</a>#}
+{#    {% else %}#}
+{#    <span class="text-secondary" title="当前页已经是末页">下一页</span>#}
+{#    {% endif %}#}
+{#</div>#}

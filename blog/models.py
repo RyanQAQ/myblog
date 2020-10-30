@@ -67,9 +67,9 @@ class Category(models.Model):
 
 class Article(models.Model):
     """文章模型"""
-    title = models.CharField(max_length=18, verbose_name='文章标题')
-    author = models.CharField(max_length=12, verbose_name='作者', default='Ryan')
-    summary = models.TextField(max_length=120, verbose_name='文章摘要')
+    title = models.CharField(max_length=16, verbose_name='文章标题')
+    author = models.CharField(max_length=10, verbose_name='作者', default='Ryan')
+    summary = models.TextField(max_length=100, verbose_name='文章摘要')
     body = models.TextField(verbose_name='文章内容')
     image = models.ImageField(upload_to='image', default='img/default.jpg')
     create_date = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
