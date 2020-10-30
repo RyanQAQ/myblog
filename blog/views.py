@@ -10,3 +10,9 @@ class IndexView(generic.ListView):
     paginate_by = getattr(settings, 'BASE_PAGINATE_BY', 8)
     paginate_orphans = getattr(settings, 'BASE_PAGINATE_ORPHANS', 12)
 
+
+class DetailView(generic.DetailView):
+    model = Article
+    template_name = 'detail.html'
+    context_object_name = 'article'
+

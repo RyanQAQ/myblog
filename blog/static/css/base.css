@@ -3,6 +3,34 @@
     border: none;
 }
 
+.h1, h1 {
+    font-size: 1.6rem !important;
+}
+
+.h2, h2 {
+    font-size: 1.4rem !important;
+}
+
+.h3, h3 {
+    font-size: 1.2rem !important;
+}
+
+.h4, h4 {
+    font-size: 1.1rem !important;
+}
+
+.h5, h5 {
+    font-size: 1rem !important;
+}
+
+.fs-12 {
+    font-size: 12px;
+}
+
+.fs-15 {
+    font-size: 15px;
+}
+
 /* --------------------导航------------------ */
 .navbar {
     padding: 0.5rem 2rem;
@@ -131,10 +159,6 @@
 .w-60 {
     width: 62%;
     vertical-align:middle
-}
-
-.fs-15 {
-    font-size: 15px;
 }
 
 .summary-block .title a {

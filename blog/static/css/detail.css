@@ -1,0 +1,12 @@
+.breadcrumb-item + .breadcrumb-item::before {
+    content: '>';
+}
+
+.card-body ol, .article-block {
+    background-color: white !important;
+    box-shadow: 0 1px 2px 1px rgba(0,0,0,0.1);
+}
+
+.article-body {
+    line-height: 2rem;
+}

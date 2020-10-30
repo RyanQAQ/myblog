@@ -17,10 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls.static import static    # 导入static
 from django.conf import settings    # 导入settings
-from blog.views import IndexView
+from blog.views import IndexView, DetailView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name='index'),  # 首页
+    path('article/<slug>/', DetailView.as_view(), name='article'),  # 文章详情页
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
