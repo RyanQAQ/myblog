@@ -36,8 +36,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.humanize',    # 添加人性化过滤器
-    'blog.apps.BlogConfig',
+    'django.contrib.humanize',  # 添加人性化过滤器
+
+    'haystack',    # 全文搜索应用
+    'blog',
 ]
 
 # 自定义用户model
@@ -69,9 +71,14 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
             # 自动加载static文件
-            'builtins' : [
-                            'django.templatetags.static'
+            'builtins': [
+                'django.templatetags.static'
             ],
+            #
+            'libraries': {
+                'custom_templatetags': 'blog.templatetags.blog_tags',
+
+            }
         },
     },
 ]
@@ -141,3 +148,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # 分页参数设置
 BASE_PAGINATE_BY = 3
 BASE_PAGINATE_ORPHANS = 1
+
+
+# haystack配置
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_cn_backend.WhooshEngine',
+        'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+    },
+}
+# 自动更新索引
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'

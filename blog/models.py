@@ -1,7 +1,7 @@
 from django.db import models
-from django.conf import settings
 from django.shortcuts import reverse
 import markdown
+import datetime
 
 
 class Keyword(models.Model):
@@ -21,7 +21,7 @@ class Keyword(models.Model):
 class Tag(models.Model):
     """标签模型"""
     name = models.CharField(max_length=20, default='')
-    # slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True, default='')
 
     class Meta:
         db_table = 'tag'
@@ -33,19 +33,16 @@ class Tag(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        # return reverse('blog:tag', kwargs={'slug': self.slug})
-        pass
+        return reverse('blog:tag', kwargs={'slug': self.slug})
 
     def get_article_list(self):
         '''返回当前标签下所有发表的文章列表'''
-        # return Article.objects.filter(tags=self)
-        pass
-
+        return Article.objects.filter(tags=self)
 
 class Category(models.Model):
     """文章分类模型"""
     name = models.CharField(max_length=20, default='')
-    # slug = models.SlugField(unique=True, default=' ')
+    slug = models.SlugField(unique=True, default='')
 
     class Meta:
         db_table = 'category'
@@ -57,21 +54,19 @@ class Category(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        # return reverse('blog:category', kwargs={'slug': self.slug})
-        pass
+        return reverse('blog:category', kwargs={'slug': self.slug})
 
     def get_article_list(self):
-        # return Article.objects.filter(category=self)
-        pass
+        return Article.objects.filter(category=self)
 
 
 class Article(models.Model):
     """文章模型"""
-    title = models.CharField(max_length=16, verbose_name='文章标题')
+    title = models.CharField(max_length=14, verbose_name='文章标题')
     author = models.CharField(max_length=10, verbose_name='作者', default='Ryan')
-    summary = models.TextField(max_length=100, verbose_name='文章摘要')
+    summary = models.TextField(max_length=80, verbose_name='文章摘要')
     body = models.TextField(verbose_name='文章内容')
-    image = models.ImageField(upload_to='image', default='img/default.jpg')
+    image = models.ImageField(upload_to='summary_img/%Y%m%d/', default='summary_img/default.jpg')
     create_date = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
     update_date = models.DateTimeField(verbose_name='更新时间', auto_now=True)
     views = models.IntegerField(default=0)
@@ -93,15 +88,14 @@ class Article(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('article', kwargs={'slug': self.slug})
-
+        return reverse('blog:article', kwargs={'slug': self.slug})
 
     def body_to_markdown(self):
-        # return markdown.markdown(self.body, extensions=[
-        #     'markdown.extensions.extra',
-        #     'markdown.extensions.codehilite',
-        # ])
-        pass
+        return markdown.markdown(self.body, extensions=[
+            'markdown.extensions.extra',
+            'markdown.extensions.codehilite',
+            'markdown.extensions.toc',
+        ])
 
     def update_view(self):
         # self.views += 1
@@ -109,9 +103,12 @@ class Article(models.Model):
         pass
 
     def get_pre(self):
-        # return Article.objects.filter(id__lt=self.id).order_by('-id').first()
-        pass
+        return Article.objects.filter(id__lt=self.id).order_by('-id').first()
 
     def get_next(self):
-        # return Article.objects.filter(id__gt=self.id).order_by('id').first()
-        pass
+        return Article.objects.filter(id__gt=self.id).order_by('id').first()
+
+    def date_format(self):
+        print(datetime.date(self.create_date).isoformat())
+        return datetime.date(self.create_date).isoformat()
+

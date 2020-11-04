@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block base-files %}
+    <link rel="stylesheet" href="{% static 'css/archive.css' %}">
+{% endblock %}
+
+{% block base_content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card border-0 rounded-0 mb-3">
+                    <div class="card-body f-16 archive">
+                        <div class="archive-title px-2">
+                            一共xxx篇文章，总计xxxxx字，评论数xxx
+                        </div>
+                        {% regroup articles by create_date.year as year_list %}
+                        <ul class="pl-3 pl-sm-4">
+                            {% for article in year_list %}
+                                <li>{{ article.grouper }} 年
+                                    {% regroup article.list by create_date.month as month_list %}
+                                    <ul class="pl-3 pl-sm-4">
+                                        {% for each in month_list %}
+                                            <li>{{ each.grouper }} 月 (共 {{ each.list|length }} 篇)
+                                                <ul class="pl-3 pl-sm-4">
+                                                    {% for item in each.list %}
+                                                        <li class="text-info">{{ item.create_date|date:'m-d' }}&nbsp;&nbsp;&nbsp;
+                                                            <a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                {% include 'tags/base_right.html' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

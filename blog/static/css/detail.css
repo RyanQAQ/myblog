@@ -1,12 +1,87 @@
 .breadcrumb-item + .breadcrumb-item::before {
     content: '>';
+    padding-right: 0.2rem;
 }
 
 .card-body ol, .article-block {
     background-color: white !important;
-    box-shadow: 0 1px 2px 1px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
 }
 
 .article-body {
     line-height: 2rem;
+}
+
+@media (max-width: 768px) {
+    .breadcrumb-item {
+        font-size: 12px;
+    }
+
+    .article-body {
+        font-size: 12px;
+        line-height: 1.2rem;
+    }
+
+    .article-block .card-title {
+        font-size: 1rem !important;
+    }
+
+    .blockquote {
+        font-size: 8px;
+    }
+
+    .pagination {
+        font-size: 12px;
+    }
+
+    .tags {
+        margin: 0.2rem 0.2rem;
+        font-size: 12px;
+    }
+
+    h1 {
+        font-size: 1rem !important;
+    }
+    h2 {
+        font-size: 15px !important;
+    }
+    h3 {
+        font-size: 14px !important;
+    }
+    h4 {
+        font-size: 13px !important;
+    }
+    h5 {
+        font-size: 12px !important;
+    }
+}
+
+.blockquote {
+    background-color: lightyellow;
+    border-left: 0.3rem solid firebrick;
+}
+
+@media (max-width: 992px) {
+    .justify-content-between {
+        -ms-flex-direction: column-reverse !important;
+        flex-direction: column-reverse !important;
+    }
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: 600 !important;
+}
+
+/*----------------mathjax-------------------*/
+.mjx-chtml {
+    outline: 0;
+}
+
+.mjx-chtml span {
+    font-size: 15px;
+}
+
+.MJXc-display {
+    overflow-x: auto;
+    overflow-y: hidden;
 }

@@ -1,0 +1,24 @@
+.archive .archive-title {
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    border-bottom: 1px solid lightgray;
+}
+
+.archive a {
+    color: #60ACFF;
+}
+
+.archive a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 576px) {
+    .archive .archive-title {
+        font-size: 16px;
+    }
+
+    .archive ul {
+        font-size: 13px;
+    }
+}

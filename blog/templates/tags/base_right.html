@@ -1,3 +1,5 @@
+{% load blog_tags %}
+
 <div class="card1 px-0 mb-3 bg-white">
     <div class="card-header px-3 py-3 bg-white">
         <i class="fa fa-paper-plane mr-2"></i>个人空间
@@ -20,7 +22,8 @@
     <div class="card-footer px-3 pt-2 text-center fs-15  bg-white">
         <div class="row">
             <div class="col">
-                <p class="card-numbers">123</p>
+                {% get_article_count as article_count %}
+                <p class="card-numbers">{{ article_count }}</p>
                 <p class="card-font">文章</p>
             </div>
             <div class="col">
@@ -40,25 +43,18 @@
         <i class="fa fa-book mr-2 mb-0"></i>文章分类
     </div>
     <div class="card-body mb-2 p-0 ">
+        {% get_category_list as categories %}
         <ul class="list-group list-group-flush fs-15">
             <li class="list-group-item">
-                <a href="#">全部文章</a>
-                <span class="article-number text-center mr-2">3</span></li>
-            <li class="list-group-item">
-                <a href="#">数据分析</a>
-                <span class="article-number text-center mr-2">6</span></li>
-            <li class="list-group-item">
-                <a href="#">django开发</a>
-                <span class="article-number text-center mr-2">12</span></li>
-            <li class="list-group-item">
-                <a href="#">数据库</a>
-                <span class="article-number text-center mr-2">9</span></li>
-            <li class="list-group-item">
-                <a href="#">Linux</a>
-                <span class="article-number text-center mr-2">0</span></li>
-            <li class="list-group-item">
-                <a href="#">python爬虫</a>
-                <span class="article-number text-center mr-2">5</span></li>
+                <a href="{% url 'blog:index' %}">全部文章</a>
+                <span class="article-number text-center mr-2">{{ article_count }}</span>
+            </li>
+            {% for each_category in categories %}
+                <li class="list-group-item">
+                    <a href="{{ each_category.get_absolute_url }}">{{ each_category.name }}</a>
+                    <span class="article-number text-center mr-2">{{ each_category.total_num }}</span>
+                </li>
+            {% endfor %}
         </ul>
     </div>
 </div>
@@ -67,9 +63,12 @@
     <div class="card-header px-3 py-3 bg-white">
         <i class="fa fa-tags mr-2 mb-0"></i>标签云
     </div>
-    <div class="card-body fs-15">
+    <div class="card-body">
         <div class="tags-cloud">
-            <a href="#">web开发</a>
+            {% get_tag_list as tag_list %}
+            {% for tag in tag_list %}
+                <a class="tags text-white" href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>
+            {% endfor %}
         </div>
     </div>
 </div>

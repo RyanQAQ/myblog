@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load highlight %}
+
+{% block base-files %}
+<style>
+    span .highlighted {color: red;}
+</style>
+{% endblock %}
+
+
+{% block base_content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+            {% if query %}
+                <div class="summary-list">
+                    {% for article in search_list %}
+                        <section class="summary-block p-1 p-lg-3 bg-white">
+                            <h5 class="title d-inline-block pl-1">
+                                <a href="{{ article.object.get_absolute_url }}" class="text-info"
+                                   href="#">{{ article.object.title }}</a></h5>
+                            <span class="pub-date float-right mt-1 mr-3 fs-15">
+                                <i class="fa fa-calendar mr-1" aria-hidden="true"></i>{{ article.object.create_date|naturalday:"Y-m-d" }}</span>
+                            <div class="summary-img align-self-center modal-open fs-15 mt-3">
+                                <a href="{{ article.object.get_absolute_url }}" title="{{ article.object.title }}">
+                                    <img src="{{ article.object.image.url }}" alt="">
+                                </a>
+                                {% with article.object.body_to_markdown|safe as this_body %}
+                                <span class="summary-text d-inline-block w-60 ml-1 ml-sm-3">{% highlight this_body with query max_length 90 %}</span>
+                                {% endwith %}
+                            </div>
+                            <div class="summary-footer mt-3  fs-15">
+                                <a href="#" title="查看该分类下更多文章">
+                                    <i class="fa fa-book ml-2 mr-1" aria-hidden="true"></i>{{ article.object.category }}
+                                </a>
+                                <a href="#" class="float-right mr-3" title="查看文章评论">
+                                    <i class="fa fa-comments mr-1" aria-hidden="true"></i>{{ article.object.views }}
+                                </a>
+                                <span class="float-right mr-4">
+                                <i class="fa fa-eye mr-1" aria-hidden="true"></i>{{ article.object.views }}</span>
+                            </div>
+                        </section>
+                        {% empty %}
+                        <div class="p-3 mt-3 bg-white">暂时没有相应文章！</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+                {% include 'tags/pagecut.html' %}
+            </div>
+            <div class="col-lg-4">
+                {% include 'tags/base_right.html' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
