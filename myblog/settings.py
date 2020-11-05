@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',  # 添加人性化过滤器
 
+    'Myaccount'     # 自定义用户应用
     # django-allauth需要的app
     'django.contrib.sites',
     'allauth',

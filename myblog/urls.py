@@ -24,4 +24,5 @@ urlpatterns = [
     path(r'admin/', admin.site.urls),
     path('', include('blog.urls', namespace='blog')),  # blog
     path(r'account/', include('allauth.urls')), # allauth
+    path(r'account/', include('Myaccount.urls', namespace='accounts'))  # Myaccount
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
