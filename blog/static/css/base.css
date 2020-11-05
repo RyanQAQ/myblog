@@ -222,6 +222,7 @@ a {
 .card1 .row .col img {
     width: 60px;
     height: 60px;
+    text-align: center;
 }
 
 .card1 .card-body {
@@ -261,6 +262,44 @@ a {
 
 .card-header {
     font-weight: bold;
+}
+
+/*微信*/
+.weixin .weixin:hover {
+    position: relative;
+}
+
+.weixin_qr {
+    width: 100px !important;
+    height: 100px !important;
+}
+
+.card1 .weixin_nr {
+    width: 110px;
+    height: 125px;
+    padding: 5px;
+    background: #e0e0e0;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: -130px;
+    display: none;
+    z-index: 2200;
+}
+
+.card1 .weixin_nr .arrow {
+    width: 0;
+    height: 0;
+    border-top: 10px solid #e0e0e0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    position: absolute;
+    left: 45px;
+    top: 123px;
+}
+
+.weixin_on .weixin_nr {
+    display: block;
 }
 
 /*标签云*/

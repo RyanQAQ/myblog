@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% load humanize %}
 {% load highlight %}
+{% load blog_tags %}
 
 {% block base-files %}
 <style>
-    span .highlighted {color: red;}
+    .highlighted {color: lightcoral;}
 </style>
 {% endblock %}
 
@@ -19,7 +20,7 @@
                         <section class="summary-block p-1 p-lg-3 bg-white">
                             <h5 class="title d-inline-block pl-1">
                                 <a href="{{ article.object.get_absolute_url }}" class="text-info"
-                                   href="#">{{ article.object.title }}</a></h5>
+                                   href="#">{% title_highlight article.object.title query %}</a></h5>
                             <span class="pub-date float-right mt-1 mr-3 fs-15">
                                 <i class="fa fa-calendar mr-1" aria-hidden="true"></i>{{ article.object.create_date|naturalday:"Y-m-d" }}</span>
                             <div class="summary-img align-self-center modal-open fs-15 mt-3">
@@ -27,7 +28,7 @@
                                     <img src="{{ article.object.image.url }}" alt="">
                                 </a>
                                 {% with article.object.body_to_markdown|safe as this_body %}
-                                <span class="summary-text d-inline-block w-60 ml-1 ml-sm-3">{% highlight this_body with query max_length 90 %}</span>
+                                <span class="summary-text d-inline-block w-60 ml-1 ml-sm-3">{% highlight this_body with query max_length 80 %}</span>
                                 {% endwith %}
                             </div>
                             <div class="summary-footer mt-3  fs-15">

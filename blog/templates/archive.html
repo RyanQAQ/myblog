@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load blog_tags %}
 
 {% block base-files %}
     <link rel="stylesheet" href="{% static 'css/archive.css' %}">
@@ -12,7 +13,7 @@
                 <div class="card border-0 rounded-0 mb-3">
                     <div class="card-body f-16 archive">
                         <div class="archive-title px-2">
-                            一共xxx篇文章，总计xxxxx字，评论数xxx
+                            一共{% get_article_count %}篇文章，总计xxxxx字，评论数xxx
                         </div>
                         {% regroup articles by create_date.year as year_list %}
                         <ul class="pl-3 pl-sm-4">

@@ -1,4 +1,5 @@
 {% load blog_tags %}
+{% load static %}
 
 <div class="card1 px-0 mb-3 bg-white">
     <div class="card-header px-3 py-3 bg-white">
@@ -8,8 +9,13 @@
         <h3>Ryancode</h3>
         <p class="fs-15 mb-4">我于杀戮之中盛放，亦如黎明中的花朵</p>
         <div class="row">
-            <div class="col">
-                <a href="#"><img src="{% static 'img/wechat.png' %}" alt="扫码添加博主的微信"></a>
+            <div class="col" onmouseover="this.className = 'weixin weixin_on col';" onmouseout="this.className = 'weixin col';">
+                <a class="" href="javascript:;"><img src="{% static 'img/wechat.png' %}" width="60px" height="60px" alt="扫码添加博主的微信"></a>
+                <div class="weixin_nr fs-12">
+                    <div class="arrow"></div>
+                    <img  class='weixin_qr' src="{% static 'img/wechat_QR.jpg' %}" alt="">
+                    扫码添加微信
+                </div>
             </div>
             <div class="col">
                 <a href="#"><img src="{% static 'img/github.png' %}" alt="转到博主的github"></a>
