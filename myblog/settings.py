@@ -38,12 +38,29 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',  # 添加人性化过滤器
 
+    # django-allauth需要的app
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    # 第三方账号相关
+    'allauth.socialaccount.providers.weibo',
+    'allauth.socialaccount.providers.github',
+
     'haystack',    # 全文搜索应用
     'blog',
 ]
 
 # 自定义用户model
 # AUTH_USER_MODEL = 'oauth.Ouser'
+
+ # django-allauth相关设置
+AUTHENTICATION_BACKENDS = (
+      # django admin所使用的用户登录与django-allauth无关
+      'django.contrib.auth.backends.ModelBackend',
+      # allauth 身份验证
+      'allauth.account.auth_backends.AuthenticationBackend',
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -159,3 +176,54 @@ HAYSTACK_CONNECTIONS = {
 }
 # 自动更新索引
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+
+
+# app django-allauth设置
+# 当出现"SocialApp matching query does not exist"这种报错的时候就需要更换这个ID
+SITE_ID = 1
+# 指定要使用的登录方法(用户名、电子邮件地址两者之一)
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+# 禁用注册邮箱验证
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+# 作用于第三方账号的注册
+SOCIALACCOUNT_EMAIL_VERIFICATION = 'optional'
+# 邮件发送后的冷却时间(以秒为单位)
+ACCOUNT_EMAIL_CONFIRMATION_COOLDOWN = 60
+# 邮箱确认邮件的截止日期(天数)
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3
+# 登录尝试失败的次数
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
+# 从上次失败的登录尝试，用户被禁止尝试登录的持续时间
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300
+# 更改为True，用户一旦确认他们的电子邮件地址，就会自动登录
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
+# 用户注册时是否需要用户输入两遍密码
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
+# 用户不能使用的用户名列表
+ACCOUNT_USERNAME_BLACKLIST = ['cnm','sb','nmsl',]
+# 用户名允许的最小长度的整数
+ACCOUNT_USERNAME_MIN_LENGTH = 1
+# 设置登录后跳转链接
+LOGIN_REDIRECT_URL ="/"
+# 设置退出登录后跳转链接
+ACCOUNT_LOGOUT_REDIRECT_URL = "/"
+# 要求用户注册时必须填写email
+ACCOUNT_EMAIL_REQUIRED = True
+# 登出直接退出，不用确认
+ACCOUNT_LOGOUT_ON_GET = True
+
+# smtp 服务器地址
+EMAIL_HOST = "smtp.126.com"
+# 默认端口25，若请求超时可尝试465
+EMAIL_PORT = 25
+# 用户名
+EMAIL_HOST_USER = "ryancode@126.com"
+# 邮箱代理授权码（不是邮箱密码）
+EMAIL_HOST_PASSWORD = "GORIOJWCAWQSCPIY"
+# 是否使用了SSL 或者TLS（两者选其一）
+# EMAIL_USE_TLS = True
+EMAIL_USE_SSL = True
+# 发送人
+EMAIL_FROM = "ryancode@126.com" #
+# 默认显示的发送人，（邮箱地址必须与发送人一致），不设置的话django默认使用的webmaster@localhost
+DEFAULT_FROM_EMAIL = "Ryancode博客 <ryancode@126.com>"

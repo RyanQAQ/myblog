@@ -21,6 +21,7 @@ from django.conf import settings  # 导入settings
 app_name = 'blog'
 
 urlpatterns = [
-                  path('admin/', admin.site.urls),
-                  path('', include('blog.urls', namespace='blog')),  # blog
-              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path(r'admin/', admin.site.urls),
+    path('', include('blog.urls', namespace='blog')),  # blog
+    path(r'account/', include('allauth.urls')), # allauth
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

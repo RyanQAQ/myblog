@@ -15,7 +15,7 @@
                 <span class="summary-text d-inline-block w-60 ml-1 ml-sm-3">{{ article.summary }}</span>
             </div>
             <div class="summary-footer mt-3  fs-15">
-                <a href="#" title="查看该分类下更多文章">
+                <a href="{{ article.category.get_absolute_url }}" title="查看该分类下更多文章">
                     <i class="fa fa-book ml-2 mr-1" aria-hidden="true"></i>{{ article.category }}
                 </a>
                 <a href="#" class="float-right mr-3" title="查看文章评论">
