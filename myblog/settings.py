@@ -53,7 +53,7 @@ INSTALLED_APPS = [
 ]
 
 # 自定义用户model
-# AUTH_USER_MODEL = 'oauth.Ouser'
+AUTH_USER_MODEL='Myaccount.User'
 
  # django-allauth相关设置
 AUTHENTICATION_BACKENDS = (

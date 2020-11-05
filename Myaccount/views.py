@@ -1,3 +1,9 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def profile():
+    pass
+
+
+def profile_update():
+    pass
