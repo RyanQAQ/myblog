@@ -11,6 +11,7 @@ class User(AbstractUser):
                                  processors=[ResizeToFill(100,100)],format='JPEG',options={'quality':95})
 
     class Meta:
+        db_table = 'user'
         verbose_name = '用户信息'
         verbose_name_plural = verbose_name
         ordering = ['-id']
