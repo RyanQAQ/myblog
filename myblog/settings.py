@@ -95,7 +95,6 @@ TEMPLATES = [
             #
             'libraries': {
                 'custom_templatetags': 'blog.templatetags.blog_tags',
-
             }
         },
     },
@@ -171,7 +170,7 @@ BASE_PAGINATE_ORPHANS = 1
 # haystack配置
 HAYSTACK_CONNECTIONS = {
     'default': {
-        'ENGINE': 'haystack.backends.whoosh_cn_backend.WhooshEngine',
+        'ENGINE': 'blog.whoosh_cn_backend.WhooshEngine',
         'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
     },
 }
@@ -204,10 +203,10 @@ ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
 ACCOUNT_USERNAME_BLACKLIST = ['cnm','sb','nmsl',]
 # 用户名允许的最小长度的整数
 ACCOUNT_USERNAME_MIN_LENGTH = 1
-# 设置登录后跳转链接
-LOGIN_REDIRECT_URL ="/"
-# 设置退出登录后跳转链接
-ACCOUNT_LOGOUT_REDIRECT_URL = "/"
+# # 设置登录后跳转链接
+# LOGIN_REDIRECT_URL ="/"
+# # 设置退出登录后跳转链接
+# ACCOUNT_LOGOUT_REDIRECT_URL = "/"
 # 要求用户注册时必须填写email
 ACCOUNT_EMAIL_REQUIRED = True
 # 登出直接退出，不用确认
