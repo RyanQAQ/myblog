@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',  # 添加人性化过滤器
+    'django_tctip', # 侧边公告栏工具
 
     'Myaccount',     # 自定义用户应用
     # django-allauth需要的app

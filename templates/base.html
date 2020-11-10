@@ -1,3 +1,5 @@
+{% load static %}
+{% load tctip_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>{% block title %}Ryan Code 个人博客{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- bootstrap font-awesome -->
+
     <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.3.0/css/bootstrap.css" rel="stylesheet">
     <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
@@ -14,6 +16,7 @@
     <!-- blog css-->
     <link href="{% static 'css/base.css' %}" rel="stylesheet">
     {% block base-files %}{% endblock %}
+    {% load_tctip %}
 </head>
 
 <body class="bg-light">
@@ -25,6 +28,10 @@
     <main class="main-content">
         {% block base_content %}{% endblock %}
     </main>
+    <!--回到顶部按钮-->
+    <span class="text-center bg-white" id="backtop">
+        <a class="fa fa-arrow-up" style="text-decoration: none;color: skyblue;" href=""></a>
+    </span>
     <!--尾部-->
     <footer class="container-fluid mt-3 bg-dark">
         <div class="card-body text-center footer-font fs-15">
@@ -33,4 +40,6 @@
         </div>
     </footer>
 </body>
+
+<script src="{% static 'js/base.js'%}"></script>
 </html>

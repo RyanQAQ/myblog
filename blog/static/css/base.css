@@ -361,7 +361,27 @@ a {
     background: #333;
 }
 
-/*--------------------底部---------------*/
+/*------------------回到顶部按钮---------------*/
+#backtop {
+    position: fixed;
+    bottom: 4em;
+    right: 5%;
+    height: 32px;
+    width: 32px;
+    font-size: 24px;
+    line-height: 32px;
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.1);
+    top: auto;
+    display: block;
+    opacity: 0.8;
+    cursor: pointer;
+    z-index:9999;
+}
+#backtop a:hover {
+    color: dodgerblue!important;
+}
+
+/*----------------------底部------------------*/
 .footer-font p {
     color: ghostwhite;
 }
