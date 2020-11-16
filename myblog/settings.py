@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',  # 添加人性化过滤器
     'django_tctip', # 侧边公告栏工具
+    'hitcount',
 
     'Myaccount',     # 自定义用户应用
     # django-allauth需要的app
@@ -52,6 +53,9 @@ INSTALLED_APPS = [
     'haystack',    # 全文搜索应用
     'blog',
 ]
+
+# django-hitcount
+SESSION_SAVE_EVERY_REQUEST = True
 
 # 自定义用户model
 AUTH_USER_MODEL='Myaccount.User'
